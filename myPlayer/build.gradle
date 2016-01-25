@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.hck.myplayer"
+        minSdkVersion 8
+        targetSdkVersion 20
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':initActivity')
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile files('libs/android-async-http-1.4.3.jar')
+    compile files('libs/commons-net-2.0.jar')
+    compile files('libs/http.jar')
+    compile files('libs/universal-image-loader-1.8.5.jar')
+    //compile files('libs/56SDK1.1.0.jar')
+    //compile files('libs/jmp_3.19.jar')
+}

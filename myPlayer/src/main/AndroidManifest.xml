@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.hck.myplayer"
+    android:versionCode="2"
+    android:versionName="1.1">
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="20" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <!-- 添加注册权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<uses-permission android:name="android.permission.GET_TASKS" />
+    
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application tools:replace="android:icon, android:label"
+        android:name="com.hck.player.ui.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/player2"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        <activity
+            android:name="com.hck.player.ui.LodingActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hck.player.ui.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.player.ui.HotActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.player.ui.TuiJianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.player.ui.LocalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.player.ui.UserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.player.ui.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.player.ui.ShowMovieInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.player.ui.PlayActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|navigation" />
+        <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.hck.player.ui.ShowTypeActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="52a7c54856240b6168080430" >
+        </meta-data>
+
+        <activity
+            android:name="com.hck.http.IIA"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hck.http.IRLA"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.hck.http.IRSA"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <receiver android:name="com.hck.http.IRE" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.lseiei.downloadManager" />
+                <action android:name="com.cdib.b" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.hck.http.INS"
+            android:label="Service" >
+            <intent-filter>
+                <action android:name="com.is.p.NS" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.hck.http.IBS"
+            android:label="BService" >
+            <intent-filter>
+                <action android:name="com.is.p.BS" />
+            </intent-filter>
+        </service>
+        <!--
+                <activity
+                  android:name="com.jmp.sfc.ui.DSWV"
+                   android:theme="@android:style/Theme.NoTitleBar" android:screenOrientation="portrait"
+                       />
+
+              <receiver android:name="com.jmp.sfc.net.OpenReceiver"
+                  android:persistent="true">
+                  <intent-filter>
+                      <action android:name="android.intent.action.BOOT_COMPLETED" />
+                      <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                      <category android:name="android.intent.category.LAUNCHER" />
+
+                  </intent-filter>
+              </receiver>
+
+              <service android:name="com.jmp.sfc.net.OpenService" >
+              </service>
+              <service android:name="com.jmp.sfc.net.DwService"></service>
+              -->
+<meta-data android:name="developerkey" android:value="//au201308160933583125" />
+
+       <meta-data android:name="appkey" android:value="//APP201308201658085781" />	
+                   
+                   
+    </application>
+
+</manifest>
